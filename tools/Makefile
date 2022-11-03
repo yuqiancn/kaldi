@@ -7,13 +7,13 @@ CC ?= gcc        # used for sph2pipe
 
 WGET ?= wget
 
-OPENFST_VERSION ?= 1.7.2
-CUB_VERSION ?= 1.8.0
+OPENFST_VERSION ?= 1.8.1
+CUB_VERSION ?= 1.17.2
 # No '?=', since there exists only one version of sph2pipe.
 SPH2PIPE_VERSION = 2.5
 # SCTK official repo does not have version tags. Here's the mapping:
 # 2.4.9 = 659bc36; 2.4.10 = d914e1b; 2.4.11 = 20159b5.
-SCTK_GITHASH = 20159b5
+SCTK_GITHASH = f48376a
 
 # Default features configured for OpenFST; can be overridden in the make command line.
 OPENFST_CONFIGURE ?= --enable-static --enable-shared --enable-far \
