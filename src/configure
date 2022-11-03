@@ -1190,6 +1190,8 @@ or try another math library, e.g. --mathlib=OPENBLAS (Kaldi may be slower)."
         echo "-I$MKLROOT/include"
       elif [[ -d $MKLLIBDIR/../../include ]]; then
         echo "-I$MKLLIBDIR/../../include"
+      elif [[ -d /usr/include/mkl/ ]]; then
+        echo "-I/usr/include/mkl/"
       else
         failure "Could not guess the MKL include directory."
       fi) || exit
@@ -1201,7 +1203,7 @@ or try another math library, e.g. --mathlib=OPENBLAS (Kaldi may be slower)."
       g++ mkl-test.cc -o mkl-test $MKL_CXXFLAGS $MKL_LDLIBS &&
         ./mkl-test
     ) || failure "MKL did not pass a simple compile test."
-
+    
     echo "MKL_CXXFLAGS = $MKL_CXXFLAGS" >> kaldi.mk
     echo "MKL_LDLIBS = $MKL_LDLIBS" >> kaldi.mk
     echo >> kaldi.mk
